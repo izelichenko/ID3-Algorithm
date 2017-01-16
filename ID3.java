@@ -44,7 +44,7 @@ public class ID3 {
             }
             N = new TreeNode<String>(aBest); //the node is not a leaf and has data a*
             HashMap<String, ArrayList<HashMap<String, String>>> subsets = getSubsets(set, aBest); //subsets for all available values for a*
-
+           
             for (int i = 0; i < values.get(aBest).size(); i++){
                 String next = values.get(aBest).get(i); //next value;
                 if (subsets.containsKey(next)==false){ //if this value has already been covered (so there wouldn't be a subset for it in 'subsets')
@@ -80,9 +80,9 @@ public class ID3 {
             //current attribute = data of current Node.
         }
     }
-
+   
    /**
-     * Checks if the labels in the given set are all the same
+     * Checks if the lables in the given set are all the same
      *
      * @param set
      * @return True if the labels are the same, false otherwise
@@ -117,8 +117,8 @@ public class ID3 {
 
         return common;
     }
-
-   /**
+    
+    /**
      * Calculates the entropy of the given instance.
      *
      * @param inst
@@ -138,8 +138,8 @@ public class ID3 {
         }
         return sum*-1; //negate the sum
     }
-
-   /**
+    
+    /**
      * Calculates the Gain of the given attribute within the given set.
      *
      * @param set
@@ -208,20 +208,11 @@ public class ID3 {
 
         return labels;
     }
-
-    public void printTwoLevels (TreeNode<String> tree){
-        System.out.println("ROOT: " + tree.getData());
-        String[] children = tree.getChildValues();
-        System.out.println("CHILDREN: ");
-        for(int i = 0; i < children.length; i++){
-                System.out.println("VALUE: " + children[i] + " NEXT NODE: " + tree.getChild(children[i]).getData());
-        }
-    }
-
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
 
-    }
+    }   
 }
